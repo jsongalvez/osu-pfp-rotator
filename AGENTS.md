@@ -25,6 +25,6 @@ Changes the human's osu.ppy.sh avatar daily (04:00 UTC+8) from a pool of images 
 
 ### Conventions
 
-- TS, ESM, oxlint (`npm run lint`), vitest (`npm test`), Node >= 20. Everything else is in the issues.
+- TS, ESM, oxlint (`npm run lint`), vitest (`npm test`), Node >= 20.12. Everything else is in the issues.
 - `.env` is gitignored; `.env.example` is the documented contract.
 - Pool URLs in config: `https://*.s-ul.eu/*` — validated at load.

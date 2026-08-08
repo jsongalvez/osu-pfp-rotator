@@ -26,3 +26,5 @@ dist-ssr
 
 # browser export dumps may contain session cookies
 captures/
+
+.env
