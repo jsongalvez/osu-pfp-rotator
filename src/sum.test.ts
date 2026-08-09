@@ -1,5 +1,5 @@
-import {expect, test} from "vitest";
+import { expect, test } from "vitest";
 
-test('one plus one equals two', () => {
-    expect(1 + 1).toBe(2)
-})
+test("one plus one equals two", () => {
+  expect(1 + 1).toBe(2);
+});

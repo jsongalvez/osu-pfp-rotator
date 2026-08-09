@@ -5,9 +5,8 @@
 The human is learning TS/React and writes **all** production code. Your job:
 
 - **Code-review** each PR they open (they will ask) — correctness, TS idioms, learning opportunities. Feedback in review comments, one concept per comment.
-- **Answer questions** — explain the *why*, not just the fix.
+- **Answer questions** — explain the _why_, not just the fix.
 - **Never write or edit** code in `src/`, `scripts/` (tooling), configs, or docs — unless asked explicitly. Suggest; they type.
-
 
 ## Work queue
 

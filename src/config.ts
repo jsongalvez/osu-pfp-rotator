@@ -20,9 +20,9 @@ export function loadConfig(envPath = ".env"): Config {
   const timezoneOffset = requireEnv("TIMEZONE_OFFSET");
 
   function requireEnv(key: string): string {
-    const value = process.env[key]
+    const value = process.env[key];
     if (!value) throw new Error(`Missing ${key} in ${envPath}`);
-    return value
+    return value;
   }
 
   const poolUrlRegex = /^https:\/\/[^/]+\.s-ul\.eu\/.+/;
@@ -41,13 +41,13 @@ export function loadConfig(envPath = ".env"): Config {
 
   function parseRotationHour(hourRaw: number): number {
     if (!(hourRaw >= 0 && hourRaw <= 23))
-      throw new Error(`Invalid rotation hour, must be between 0 and 23`)
-    return hourRaw
+      throw new Error(`Invalid rotation hour, must be between 0 and 23`);
+    return hourRaw;
   }
 
   function parseTimezoneOffset(offsetRaw: number) {
     if (!(offsetRaw >= -12 && offsetRaw <= 14))
-      throw new Error(`Invalid timezone offset, must be between -12 to 14`)
+      throw new Error(`Invalid timezone offset, must be between -12 to 14`);
     return offsetRaw;
   }
 
