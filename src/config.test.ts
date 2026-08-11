@@ -10,4 +10,5 @@ test("loads config from fixture env", () => {
   ]);
   expect(config.rotationHour).toBe(4);
   expect(config.timezoneOffset).toBe(8);
+  expect(config.stateFile).toBe("state_test.json");
 });
