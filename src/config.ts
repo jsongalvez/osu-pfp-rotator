@@ -7,6 +7,7 @@ export interface Config {
   pool: string[];
   rotationHour: number;
   timezoneOffset: number;
+  stateFile: string;
 }
 
 export function loadConfig(envPath = ".env"): Config {
@@ -18,6 +19,7 @@ export function loadConfig(envPath = ".env"): Config {
   const poolRaw = requireEnv("IMAGE_POOL");
   const rotationHour = requireEnv("ROTATION_HOUR");
   const timezoneOffset = requireEnv("TIMEZONE_OFFSET");
+  const stateFile = requireEnv("STATE_FILE");
 
   function requireEnv(key: string): string {
     const value = process.env[key];
@@ -25,9 +27,8 @@ export function loadConfig(envPath = ".env"): Config {
     return value;
   }
 
-  const poolUrlRegex = /^https:\/\/[^/]+\.s-ul\.eu\/.+/;
-
   function parsePool(poolRaw: string): string[] {
+    const poolUrlRegex = /^https:\/\/[^/]+\.s-ul\.eu\/.+/;
     return poolRaw
       .split(",")
       .map((url) => url.trim())
@@ -37,6 +38,13 @@ export function loadConfig(envPath = ".env"): Config {
           throw new Error(`Invalid pool URL ${url} in ${envPath}`);
         return url;
       });
+  }
+
+  function parseStateFile(stateFileRaw: string): string {
+    const stateFileRegex = /[\w./-]+/;
+    if (!stateFileRegex.test(stateFileRaw))
+      throw new Error(`Invalid state file ${stateFileRaw} in ${envPath}`);
+    return stateFileRaw;
   }
 
   function parseRotationHour(hourRaw: number): number {
@@ -58,5 +66,6 @@ export function loadConfig(envPath = ".env"): Config {
     pool: parsePool(poolRaw),
     rotationHour: parseRotationHour(Number(rotationHour)),
     timezoneOffset: parseTimezoneOffset(Number(timezoneOffset)),
+    stateFile: parseStateFile(stateFile),
   };
 }

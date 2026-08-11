@@ -28,3 +28,4 @@ dist-ssr
 captures/
 
 .env
+state_test.json
